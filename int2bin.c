@@ -19,18 +19,31 @@ void print_help(char *name){
 
 char *to_bin(int n, int bits){
 	char *out = malloc(sizeof(char) * (bits+1));
+	bool negative = false; //keep track of whether n is negative (and requires 2s compliment notation)
 	int i;
 
 	out[bits] = '\0';
 
+	//handle negative numbers
+	if(n < 0){
+		n = -1 * (n + 1);
+		negative = true;
+	}
+
 	for(i = bits-1; i >= 0; --i){
 		out[i] = (n & 1 ? '1' : '0');
-		n /= 2;
+		n = n >> 1;
+	}
+
+	//if negative, flip the bits
+	if(negative){
+		for(i = 0; i < bits; ++i){
+			out[i] = 48 + ((out[i] - 47) % 2);
+		}
 	}
 
 	return out;
 }
-
 
 
 int main(int argc, char **argv){
