@@ -12,9 +12,9 @@ void print_help(char *name){
 	printf("Convert NUMBER(S) to binary\n\n");
 
 	printf("Options:\n");
-	printf("  -b, --bits\tSpecify number of bits to print (default is 32)\n");
-	printf("  -h, --help\tPrint this help message and exit\n");
-	printf("      --raw \tPrint only the binary form\n");
+	printf("  -b, --bits NUM \tSpecify number of bits to print (default is 32)\n");
+	printf("  -h, --help     \tPrint this help message and exit\n");
+	printf("      --raw      \tPrint only the binary form\n");
 }
 
 char *to_bin(int n, int bits){
